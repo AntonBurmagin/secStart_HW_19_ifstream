@@ -23,7 +23,8 @@ int main() {
     text.close();
     */
     
-    // 19.5.2 binary reading from file
+    // 19.5.2 binary reading from 
+    /*
     std::ifstream text;
     text.open("words.txt", std::ios::binary);
     
@@ -41,5 +42,26 @@ int main() {
         std::cout << "Incorrect file path!" << std::endl;
     }
     text.close();
+    */
 
+    //19.5.3 read from salary-list
+    /*
+    std::fstream list("salary-list.txt");
+    std::string name, surname;
+    int salary = 0;
+    std::string nameBuf, surnameBuf, dateBuf;
+    int salaryBuf;
+    while (!list.eof()) {
+        list >> nameBuf >> surnameBuf >> salaryBuf >> dateBuf;
+        std::cout << nameBuf << " " << surnameBuf << " " << salaryBuf << " " << dateBuf << std::endl;
+        if (salaryBuf > salary) {
+            salary = salaryBuf;
+            name = nameBuf;
+            surname = surnameBuf;
+        }
+    }
+    std::cout << "Max salary is earned by " << name << " " << surname << " and it's: " << salary << std::endl;
+    list.close();
+    */
+   
 }
