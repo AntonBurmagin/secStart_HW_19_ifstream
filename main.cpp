@@ -63,5 +63,28 @@ int main() {
     std::cout << "Max salary is earned by " << name << " " << surname << " and it's: " << salary << std::endl;
     list.close();
     */
-   
+
+    //19.5.4 is PNG file
+    std::string path;
+    while (true) {
+        std::cout << "Input file path: ";
+        std::getline(std::cin, path);
+        if (path.substr(path.length() - 4, 4) == ".png") {
+            std::ifstream file(path, std::ios::binary);
+            if (file.is_open()) {
+                char start[4];
+                file >> start;
+                if (start[0] == -119 && start[1] == 'P' && start[2] == 'N' && start[3] == 'G') {
+                    std::cout << path << " is PNG file!" << std::endl;
+                }
+                file.close();
+            } else {
+                std::cout << "There is no such file!" << std::endl;
+            }
+            
+        } else {
+            std::cout << "Incorrect file format!\n";
+        }
+    }
+    
 }
